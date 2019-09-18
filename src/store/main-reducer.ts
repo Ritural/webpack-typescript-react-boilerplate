@@ -1,7 +1,9 @@
 import createSagaMiddleware from '@redux-saga/core';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import {
+  applyMiddleware, combineReducers, compose, createStore,
+} from 'redux';
 import {
   createResponsiveStateReducer,
   responsiveStoreEnhancer,
@@ -25,8 +27,8 @@ const middleware = [routerMiddleware(history), sagaMiddleware];
 let composeEnhancers = compose;
 
 if (!IS_PRODUCTION) {
-  const composeWithDevToolsExtension = (window as any)
-    .__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+  // eslint-disable-next-line no-underscore-dangle
+  const composeWithDevToolsExtension = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
   if (typeof composeWithDevToolsExtension === 'function') {
     composeEnhancers = composeWithDevToolsExtension;

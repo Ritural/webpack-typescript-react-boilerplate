@@ -4,11 +4,11 @@ import posed, { PoseGroup } from 'react-pose';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { Footer } from 'components/footer';
-import { Header } from 'components/header';
-import { Home } from 'routes/home';
-import { NotFound } from 'routes/not-found';
-import { ReduxExample } from 'routes/redux-example';
+import { Footer } from 'components/Footer/footer';
+import { Header } from 'components/Header/Header';
+import { Home } from 'routes/Home/Home';
+import { NotFound } from 'routes/NotFound/NotFound';
+import { ReduxExample } from 'routes/ReduxExample/ReduxExample';
 import { store } from 'store/main-reducer';
 import 'styles/app.scss';
 
@@ -46,12 +46,12 @@ class App extends React.Component {
                 <RouteContainer key={location.pathname}>
                   <Header />
 
-                  <main className='Content'>
+                  <main className="Content">
                     <Switch>
-                      <Route exact={true} path='/' component={Home} />
+                      <Route exact path="/" component={Home} />
                       <Route
-                        exact={true}
-                        path='/redux-example'
+                        exact
+                        path="/redux-example"
                         component={ReduxExample}
                       />
                       <Route component={NotFound} />

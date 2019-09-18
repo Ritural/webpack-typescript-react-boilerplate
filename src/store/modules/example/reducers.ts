@@ -26,25 +26,30 @@ export function exampleReducer(
   action: ExampleActionTypes,
 ) {
   switch (action.type) {
-    case INCREMENT_COUNT:
+    case INCREMENT_COUNT: {
       const newCount = state.count + 1;
       return {
         ...state,
         count: newCount,
       };
-    case SET_COUNT:
+    }
+
+    case SET_COUNT: {
       const { count } = action.payload;
 
       return {
         ...state,
         count,
       };
-    case FETCH_USERS:
+    }
+
+    case FETCH_USERS: {
       return {
         ...state,
         isLoading: true,
       };
-    case FETCH_USERS_SUCCESS:
+    }
+    case FETCH_USERS_SUCCESS: {
       const { users } = action.payload;
 
       return {
@@ -52,7 +57,8 @@ export function exampleReducer(
         isLoading: false,
         users,
       };
-    case FETCH_USERS_FAILURE:
+    }
+    case FETCH_USERS_FAILURE: {
       const { error } = action.payload;
 
       return {
@@ -60,6 +66,7 @@ export function exampleReducer(
         isLoading: false,
         error,
       };
+    }
     default:
       return state;
   }

@@ -12,7 +12,7 @@ export const appReducer = (state = initialState, action: AppActionTypes) => {
   const { payload } = action;
 
   switch (action.type) {
-    case TOGGLE_MENU:
+    case TOGGLE_MENU: {
       const { menuOverride } = payload;
 
       let isMenuOpen = !state.isMenuOpen;
@@ -25,6 +25,7 @@ export const appReducer = (state = initialState, action: AppActionTypes) => {
         ...state,
         isMenuOpen,
       };
+    }
     default:
       return state;
   }

@@ -26,23 +26,31 @@ export class ReduxExampleComponent extends React.Component<IProps> {
   }
 
   render() {
-    const { count, incrementCount, setCount, users } = this.props;
+    const {
+      count, incrementCount, setCount, users,
+    } = this.props;
 
     return (
-      <div className='ReduxExample'>
+      <div className="ReduxExample">
         <h1>Count: {count}</h1>
 
-        <button className='Button' onClick={() => incrementCount()}>
+        <button
+          type="button"
+          className="Button"
+          onClick={() => incrementCount()}
+        >
           Increment by 1
         </button>
+
         <button
-          className='Button Button--secondary'
+          type="button"
+          className="Button Button--secondary"
           onClick={() => setCount(0)}
         >
           Set count to 0
         </button>
 
-        <ul className='ReduxExample-list'>
+        <ul className="ReduxExample-list">
           {users.map((user) => {
             const {
               id,
@@ -52,7 +60,7 @@ export class ReduxExampleComponent extends React.Component<IProps> {
             } = user;
 
             return (
-              <li className='ReduxExample-list-item' key={id}>
+              <li className="ReduxExample-list-item" key={id}>
                 <h3>{name}</h3>
                 <p>{username} - {phone}</p>
               </li>
